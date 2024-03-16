@@ -1,13 +1,15 @@
 {% extends 'service/base.html' %}
 
 {% block content %}
-<h2 class="display-4 text-center mb-4">Мои клиенты</h2>
+<h2 class="display-4 text-center mb-4">Мои клиенты
+</h2>
 <div class="row">
     <div class="col-9"></div>
     <div class="col-2">
         <div class="btn-group" role="group" aria-label="Basic outlined example">
             <a class="btn btn-outline-primary" style="width: 15rem;"
-               href="{% url 'service:client_create' %}">Создать клиента</a>
+               href="{% url 'service:client_create' %}">Создать клиента
+            </a>
         </div>
     </div>
 </div>
@@ -27,12 +29,16 @@
             <td>{{ object.client_name }}</td>
             <td>{{ object.client_email }}</td>
             <td>{{ object.comment }}</td>
-<!--            <td>{{ object.send_options_name }}</td>-->
+            <td>{{ object.send_options_name }}</td>
             <td>
-                <a class="btn btn-info" href="{% url 'service:client_update' object.pk %}" role="button">Редактировать</a>
+                <a class="btn btn-info"
+                   href="{% url 'service:client_update' object.pk %}" role="button">Редактировать
+                </a>
             </td>
             <td>
-                <a class="btn btn-danger" href="{% url 'service:client_delete' object.pk %}" role="button">Удалить</a>
+                <a class="btn btn-danger"
+                   href="{% url 'service:client_delete' object.pk %}" role="button">Удалить
+                </a>
             </td>
         </tr>
         {% endfor %}

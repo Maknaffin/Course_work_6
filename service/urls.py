@@ -3,7 +3,8 @@ from django.urls import path
 from service.apps import ServiceConfig
 from service.views import BaseTemplateView, MessageListView, MessageCreateView, MessageUpdateView, MessageDeleteView, \
     ClientListView, ClientCreateView, ClientUpdateView, ClientDeleteView, MailingOptionsListView, \
-    MailingOptionsCreateView, MailingOptionsUpdateView, MailingOptionsDeleteView, LogsListView
+    MailingOptionsCreateView, MailingOptionsUpdateView, MailingOptionsDeleteView, LogsListView, UsersListView, \
+    UsersUpdateView
 
 app_name = ServiceConfig.name
 
@@ -11,6 +12,8 @@ urlpatterns = [
     path('', BaseTemplateView.as_view(), name='main'),
 
     path('logs/', LogsListView.as_view(), name='logs'),
+    path('users_table/', UsersListView.as_view(), name='users_table'),
+    path('edit_user/<int:pk>/', UsersUpdateView.as_view(), name='edit_user'),
 
     path('mailings/', MailingOptionsListView.as_view(), name='mailing_list'),
     path('mailing_create/', MailingOptionsCreateView.as_view(), name='mailing_create'),

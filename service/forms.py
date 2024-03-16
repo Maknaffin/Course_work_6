@@ -1,6 +1,7 @@
 from django import forms
 
 from service.models import Message, Client, Logs, MailingOptions
+from users.models import User
 
 
 class StyleFormMixin:
@@ -31,3 +32,15 @@ class MailingOptionsForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = MailingOptions
         exclude = ('options_owner', 'next_try', 'mailing_status',)
+
+
+class MailingOptionsManagerForm(StyleFormMixin, forms.ModelForm):
+    class Meta:
+        model = MailingOptions
+        fields = ('is_active',)
+
+
+class UsersForm(StyleFormMixin, forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('is_active',)
