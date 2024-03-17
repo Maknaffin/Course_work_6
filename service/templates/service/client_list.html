@@ -20,7 +20,6 @@
             <th scope="col">Имя клиента</th>
             <th scope="col">Email клиента</th>
             <th scope="col">Комментарий</th>
-            <th scope="col">Название рассылки</th>
         </tr>
         </thead>
         <tbody>
@@ -29,14 +28,13 @@
             <td>{{ object.client_name }}</td>
             <td>{{ object.client_email }}</td>
             <td>{{ object.comment }}</td>
-            <td>{{ object.send_options_name }}</td>
             <td>
-                <a class="btn btn-info"
+                <a class="btn btn-outline-info"
                    href="{% url 'service:client_update' object.pk %}" role="button">Редактировать
                 </a>
             </td>
             <td>
-                <a class="btn btn-danger"
+                <a class="btn btn-outline-danger"
                    href="{% url 'service:client_delete' object.pk %}" role="button">Удалить
                 </a>
             </td>

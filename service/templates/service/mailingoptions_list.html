@@ -44,17 +44,17 @@
             <td>{{ object.mail_title }}</td>
             {% if not request.user|has_group:"manager" %}
             <td>
-                <a class="btn btn-info" href="{% url 'service:mailing_update' object.pk %}"
+                <a class="btn btn-outline-info" href="{% url 'service:mailing_update' object.pk %}"
                    role="button">Редактировать</a>
             </td>
             <td>
-                <a class="btn btn-danger" href="{% url 'service:mailing_delete' object.pk %}"
+                <a class="btn btn-outline-danger" href="{% url 'service:mailing_delete' object.pk %}"
                    role="button">Удалить</a>
             </td>
             {% else %}
             {% if object.is_active %}
             <td>
-                <a class="btn btn-danger" href="{% url 'service:mailing_update' object.pk %}"
+                <a class="btn btn-outline-danger" href="{% url 'service:mailing_update' object.pk %}"
                    role="button">Деактивировать</a>
             </td>
             {% else %}

@@ -10,7 +10,7 @@ class Blog(models.Model):
                                         verbose_name='Дата публикации')
     views_count = models.IntegerField(default=0, verbose_name='Количество просмотров')
     is_published = models.BooleanField(default=True, verbose_name="Опубликовано")
-    image = models.ImageField(upload_to='blog/', verbose_name="Опубликовано", **NULLABLE)
+    image = models.ImageField(upload_to='blog/', verbose_name="Фото", **NULLABLE)
 
     def __str__(self):
         return f'{self.article_name}'

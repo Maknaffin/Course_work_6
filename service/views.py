@@ -1,15 +1,30 @@
+import random
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, CreateView, UpdateView, DeleteView
 
+from blog.models import Blog
 from service.forms import MessageForm, ClientForm, MailingOptionsForm, MailingOptionsManagerForm, UsersForm
 from service.models import MailingOptions, Message, Client, Logs
+from service.services import set_period
 from users.models import User
 
 
 class BaseTemplateView(TemplateView):
     """Контроллер для вывода статистики на главной странице"""
     template_name = 'service/statistics.html'
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['full_list'] = MailingOptions.objects.all().count()
+        context_data['active_list'] = MailingOptions.objects.filter(is_active=True).count()
+        context_data['unique_clients_list'] = Client.objects.all().count()
+        articles_count = Blog.objects.all().count()
+        article_list = random.sample(list(Blog.objects.all()), articles_count)
+        context_data['random_articles'] = article_list
+
+        return context_data
 
 
 class MessageListView(LoginRequiredMixin, ListView):
@@ -103,13 +118,13 @@ class MailingOptionsCreateView(LoginRequiredMixin, CreateView):
     form_class = MailingOptionsForm
     success_url = reverse_lazy('service:mailing_list')
 
-    # def form_valid(self, form): # валидация с шадулером
-    #     send_params = form.save()
-    #     send_params.options_owner = self.request.user
-    #     send_params.next_try = set_period()
-    #     send_params.save()
-    #
-    #     return super().form_valid(form)
+    def form_valid(self, form):
+        send_params = form.save()
+        send_params.options_owner = self.request.user
+        send_params.next_try = set_period()
+        send_params.save()
+
+        return super().form_valid(form)
 
 
 class MailingOptionsUpdateView(LoginRequiredMixin, UpdateView):
@@ -118,13 +133,13 @@ class MailingOptionsUpdateView(LoginRequiredMixin, UpdateView):
     form_class = MailingOptionsForm
     success_url = reverse_lazy('service:mailing_list')
 
-    # def form_valid(self, form): # валидация с шадулером
-    #     send_params = form.save()
-    #     self.model.send_status = send_params.send_status
-    #     send_params.next_try = set_period()
-    #     send_params.save()
-    #
-    #     return super().form_valid(form)
+    def form_valid(self, form):
+        send_params = form.save()
+        self.model.mailing_status = send_params.mailing_status
+        send_params.next_try = set_period()
+        send_params.save()
+
+        return super().form_valid(form)
 
     def get_queryset(self, *args, **kwargs):
         queryset = super().get_queryset(*args, **kwargs)
@@ -140,7 +155,7 @@ class MailingOptionsUpdateView(LoginRequiredMixin, UpdateView):
 class MailingOptionsDeleteView(DeleteView):
     """Контроллер удаления рассылки"""
     model = MailingOptions
-    success_url = reverse_lazy('service:mailing_delete')
+    success_url = reverse_lazy('service:mailing_list')
 
 
 class LogsListView(LoginRequiredMixin, ListView):

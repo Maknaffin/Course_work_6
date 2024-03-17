@@ -2,25 +2,31 @@
 
 {% block content %}
 <main>
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-        <div class="col">
+    <div class="header mx-auto text-center">
+        <h1 class="display-4 fw-normal text-body-emphasis mb-5">Сервис рассылок</h1>
+        <h3>Зарегистрированных рассылок <span class="badge bg-secondary mb-3">{{ full_list }}</span></h3>
+        <h3>Активных рассылок <span class="badge bg-secondary mb-3">{{ active_list }}</span></h3>
+        <h3>Уникальных клиентов <span class="badge bg-secondary mb-3">{{ unique_clients_list }}</span></h3>
+        </a>
+    </div>
+    <div class="row mt-5">
+        {% for object in random_articles %}
+        <div class="col-sm-6 mb-3 mb-sm-0">
             <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">Free</h4>
+                <div class="card-header py-3 text-center">
+                    <h4 class="my-0 fw-normal">{{ object.article_name }}</h4>
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title">$0<small
-                            class="text-body-secondary fw-light">/mo</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>10 users included</li>
-                        <li>2 GB of storage</li>
-                        <li>Email support</li>
-                        <li>Help center access</li>
-                    </ul>
-                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                    <p class="card-text">{{ object.contents|truncatechars:200 }}</p>
+                    <p class="card-text">Просмотры: {{ object.views_count }}</p>
+                    <div class="btn-group">
+                        <a href="{% url 'blog:article' object.pk %}" type="button"
+                           class="btn btn-sm btn-outline-success">Перейти</a>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </main>
 {% endblock %}

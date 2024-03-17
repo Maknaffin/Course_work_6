@@ -4,24 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8794441a-4169-45d1-a724-3148e1b75db3" name="Changes" comment="Completed the first part of the coursework">
-      <change afterPath="$PROJECT_DIR$/.env.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/templates/service/user_activity_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/templates/service/users_table.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/templatetags/my_tags.py" afterDir="false" />
+    <list default="true" id="8794441a-4169-45d1-a724-3148e1b75db3" name="Changes" comment="Completed the second part of the coursework">
+      <change afterPath="$PROJECT_DIR$/blog/templates/blog/blog_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/templates/service/client_confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/service/templates/service/client_confirm_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/templates/service/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/service/templates/service/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/templates/service/client_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/service/templates/service/client_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/templates/service/includes/inc_nav_bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/service/templates/service/includes/inc_nav_bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/templates/service/mailingoptions_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/service/templates/service/mailingoptions_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/templates/service/mailingoptions_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/service/templates/service/mailingoptions_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/templates/service/message_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/service/templates/service/message_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/templates/service/statistics.html" beforeDir="false" afterPath="$PROJECT_DIR$/service/templates/service/statistics.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/photo/Самолетик.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/photo/Самолетик.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,25 +50,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.Course_work_6.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Timofey/PycharmProjects/Course_work_6/users/templates/users&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;proofread&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.Course_work_6.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Timofey/PycharmProjects/Course_work_6/blog/templates/blog",
+    "settings.editor.selected.configurable": "proofread"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Timofey\PycharmProjects\Course_work_6\blog\templates\blog" />
       <recent name="C:\Users\Timofey\PycharmProjects\Course_work_6\users\templates\users" />
       <recent name="C:\Users\Timofey\PycharmProjects\Course_work_6\service\templates\service" />
       <recent name="$PROJECT_DIR$/static/photo" />
       <recent name="$PROJECT_DIR$/static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Timofey\PycharmProjects\Course_work_6\media" />
+      <recent name="C:\Users\Timofey\PycharmProjects\Course_work_6\static" />
+      <recent name="C:\Users\Timofey\PycharmProjects\Course_work_6\blog\templates\blog" />
       <recent name="C:\Users\Timofey\PycharmProjects\Course_work_6\service\templates\service" />
     </key>
   </component>
@@ -137,8 +140,19 @@
       <option name="project" value="LOCAL" />
       <updated>1710615266670</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Completed the second part of the coursework">
+      <option name="closed" value="true" />
+      <created>1710630861765</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710630861765</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -154,6 +168,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create repository" />
     <MESSAGE value="Completed the first part of the coursework" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed the first part of the coursework" />
+    <MESSAGE value="Completed the second part of the coursework" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed the second part of the coursework" />
   </component>
 </project>
