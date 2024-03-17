@@ -7,5 +7,5 @@ from blog.views import BlogDetailView
 app_name = BlogConfig.name
 
 urlpatterns = [
-    path('article/<int:pk>/', BlogDetailView.as_view(), name='article'),
+    path('article/<int:pk>/', cache_page(60)(BlogDetailView.as_view()), name='article'),
 ]

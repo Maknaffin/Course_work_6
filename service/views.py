@@ -1,6 +1,8 @@
 import random
 
+from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.cache import cache
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, CreateView, UpdateView, DeleteView
 
@@ -12,7 +14,7 @@ from users.models import User
 
 
 class BaseTemplateView(TemplateView):
-    """Контроллер для вывода статистики на главной странице"""
+    """Контроллер для вывода статистики и статей на главной странице"""
     template_name = 'service/statistics.html'
 
     def get_context_data(self, **kwargs):
@@ -21,7 +23,14 @@ class BaseTemplateView(TemplateView):
         context_data['active_list'] = MailingOptions.objects.filter(is_active=True).count()
         context_data['unique_clients_list'] = Client.objects.all().count()
         articles_count = Blog.objects.all().count()
-        article_list = random.sample(list(Blog.objects.all()), articles_count)
+        if settings.CACHE_ENABLED:
+            key = f'random_articles'
+            article_list = cache.get(key)
+            if article_list is None:
+                article_list = random.sample(list(Blog.objects.all()), articles_count)
+                cache.set(key, article_list)
+        else:
+            article_list = random.sample(list(Blog.objects.all()), articles_count)
         context_data['random_articles'] = article_list
 
         return context_data
